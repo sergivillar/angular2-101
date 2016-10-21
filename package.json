@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --progress",
-    "postinstall": "typings install"
+    "build:prod": "webpack -p --progress",
+    "postinstall": "typings install",
+    "serve": "webpack-dev-server --inline --progress"
   },
   "dependencies": {
     "@angular/common": "~2.1.0",
@@ -19,9 +21,11 @@
     "zone.js": "^0.6.26"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^2.24.0",
     "ts-loader": "^0.9.5",
     "typescript": "^2.0.3",
     "typings": "^1.4.0",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
   }
 }
