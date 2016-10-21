@@ -2,7 +2,7 @@
   "name": "angular2-101",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc --rootDir src --outDir dist",
+    "build": "webpack --progress",
     "postinstall": "typings install"
   },
   "dependencies": {
@@ -19,7 +19,9 @@
     "zone.js": "^0.6.26"
   },
   "devDependencies": {
+    "ts-loader": "^0.9.5",
     "typescript": "^2.0.3",
-    "typings": "^1.4.0"
+    "typings": "^1.4.0",
+    "webpack": "^1.13.2"
   }
 }
