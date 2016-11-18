@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: './src/main.ts',
@@ -9,7 +10,18 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{test:/\.ts$/, loader: 'ts-loader'}
+			{
+				test: /\.ts$/,
+				loaders: ['ts-loader', 'angular2-template-loader']
+			},
+			{
+				test: /\.html$/,
+				loader: 'html'
+			},
+			{
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+            }
 		]
 	},
 	resolve: {
@@ -18,6 +30,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './src/index.html'
-		})
+		}),
+		new ExtractTextPlugin('style.css')
 	]
 };
